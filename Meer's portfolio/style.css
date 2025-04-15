@@ -1,0 +1,448 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Adjust based on your navbar height */
+}
+
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Send video to the background */
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+  
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  background: rgba(255, 255, 255, 0.046);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.2px);
+  -webkit-backdrop-filter: blur(3.2px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  scroll-snap-align: center;
+}
+
+.la{
+  text-decoration: none;
+  color: beige;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 400;
+  color: beige;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+ .nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a:hover {
+  color: #ffc800;
+  text-shadow:
+    0px 0px 20px rgb(212, 0, 255),
+    0px 0px 40px rgb(212, 0, 255),
+    0px 0px 80px rgb(212, 0, 255),
+    0px 0px 160px rgb(212, 0, 255);
+    transition-duration: 0.50s;
+} 
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Lobster", sans-serif;
+  transition: color 0.3s ease;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+/* Add underline using a pseudo-element */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffc800;
+  transition: width 0.4s ease;
+}
+
+/* Animate underline on hover */
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Fade-out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+
+.nav-links.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile styles */
+
+@media (max-width: 768px) {
+  .nav-links {
+    width: 100%;
+    right: 0;
+    left: 0;
+    top: 100%;
+    margin: 0 auto;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 15px 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+  nav {
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    /* background-color: rgba(30, 30, 30, 0.95);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); */
+    background: rgba(0, 0, 0, 0.874);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.2px);
+  -webkit-backdrop-filter: blur(3.2px);
+  border: 1px solid rgba(255, 255, 255, 0.648);
+    width: 800px;
+    animation: fadeIn 0.3s ease forwards;
+    opacity: 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+    animation: fadeIn 0.3s ease forwards;
+    opacity: 1;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+
+
+/* landing stuff */
+
+/* .landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  gap: 30px;
+} */
+
+.landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px; /* reduced padding */
+  flex-wrap: wrap;
+  margin-top: 5%;
+  gap: 30px;
+  overflow-x: hidden; /* prevent child overflow */
+  width: 100%;
+  
+}
+
+.cdw{
+ text-align: center;
+}
+
+.text-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+.text-content h1 {
+  font-size: 5em;
+  color: lime;
+  margin-bottom: 15px;
+  font-family: "Dancing Script", serif;
+  font-weight: 800;
+}
+
+.p1{
+  font-family: "Pacifico", cursive;
+  color: #fff;
+  text-align: center;
+}
+
+.text-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  text-align: center;
+ 
+}
+
+.highlight {
+  font-weight: bold;
+  font-size: 30px !important;
+  background: linear-gradient(to right, #00f, #f0f, #f00);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.profile-pic {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.profile-pic img {
+  width: 70%;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 5px;
+  background-image: linear-gradient(45deg, #ff00ff, #00ffff, #ff0000, #ffff00);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 0 0 15px 5px rgba(255, 0, 255, 0.7), 0 0 25px 5px rgba(0, 255, 255, 0.7), 0 0 35px 5px rgba(255, 0, 0, 0.7);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.profile-pic img:hover {
+  box-shadow: 0 0 30px 10px rgba(255, 0, 255, 1), 0 0 50px 10px rgba(0, 255, 255, 1), 0 0 70px 10px rgba(255, 0, 0, 1);
+}
+
+/* Tablet (portrait) and below */
+@media (max-width: 1024px) {
+  .landing {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 10%;
+  }
+
+  .profile-pic {
+    margin-bottom: 30px;
+  }
+
+  .text-content h1 {
+    font-size: 3em;
+  }
+
+  .text-content p {
+    font-size: 1.1em;
+  }
+
+  .highlight {
+    font-size: 1.3em;
+  }
+}
+
+/* Small devices (phones) */
+@media (max-width: 480px) {
+  .text-content h1 {
+    font-size: 2em;
+  }
+
+  .text-content p {
+    font-size: 1em;
+  }
+
+  .highlight {
+    font-size: 1.1em;
+  }
+
+  .profile-pic img {
+    width: 90%;
+  }
+
+  .landing {
+    padding: 20px 10px;
+    margin-top: 15%;
+  }
+}
+
+.card {
+  text-align: center;
+  background-color: #333 !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  width: 70%;
+  margin-left: 15%;
+  
+}
+
+.protest-guerrilla-regular {
+  font-family: "Protest Guerrilla", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.div{
+  background: rgba(15, 15, 15, 0.42);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.1px);
+-webkit-backdrop-filter: blur(7.1px);
+border: 1px solid rgba(255, 252, 252, 0.99);
+width: 100% !important;
+}
+.abp{
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.exp{
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.edp{
+  font-family: "Bebas Neue", sans-serif;
+
+}
+
+.skp{
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.btt {
+  background: rgba(255, 255, 255, 0.046);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.2px);
+  -webkit-backdrop-filter: blur(3.2px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: "Bebas Neue", sans-serif;
+  color: white;
+  width: 90px;
+  height: 40px;
+
+  margin: 40px auto 0; /* Center horizontally */
+  display: block;
+  text-align: center;
+  transition: color 0.5s;
+}
+
+.btt:hover {
+  color: #ffc800;
+}
+
+
+
+/* This is a general safeguard — useful when images or other elements overflow by accident. */
+* {
+  max-width: 100%;
+}

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Meer</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Protest+Guerrilla&family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.046);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(3.2px);
+      -webkit-backdrop-filter: blur(3.2px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .la {
+      text-decoration: none;
+      color: beige;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 400;
+      font-size: 30px;
+      color: beige;
+      text-decoration: none;
+    }
+
+
+    .nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Lobster", sans-serif;
+  transition: color 0.3s ease;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+/* Add underline using a pseudo-element */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffc800;
+  transition: width 0.4s ease;
+}
+
+/* Hover styles */
+.nav-links a:hover {
+  color: #ffc800;
+  text-shadow:
+    0px 0px 20px rgb(212, 0, 255),
+    0px 0px 40px rgb(212, 0, 255),
+    0px 0px 80px rgb(212, 0, 255),
+    0px 0px 160px rgb(212, 0, 255);
+  transition-duration: 0.5s;
+}
+
+/* Animate underline on hover */
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      padding-top: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .contact-box {
+      display: flex;
+      flex-wrap: wrap;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 900px;
+      color: #fff;
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      border: 1px solid rgba(255, 252, 252, 0.105);
+    }
+
+    .left {
+      margin-top: 4%;
+    }
+
+    .left h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      font-family: 'Protest Guerrilla', sans-serif;
+      color: #ffc800;
+    }
+
+    .left p {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .left h3 {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ffc800;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .left .social a {
+      margin-right: 10px;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .lt {
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .fa-facebook-f:hover {
+      color: dodgerblue;
+      transition-duration: 0.50s;
+    }
+
+    .fa-linkedin-in:hover {
+      color: rgb(0, 128, 255);
+      transition-duration: 0.50s;
+    }
+
+    .fa-instagram:hover {
+      background: linear-gradient(45deg, red, blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: all 0.50s ease;
+    }
+
+    .right {
+      margin-top: 30px;
+    }
+
+    .right h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-family: 'Protest Guerrilla', sans-serif;
+      color: #ffc800;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    form label {
+      font-weight: 400;
+      font-size: 16px;
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    button {
+      padding: 12px;
+      background: dodgerblue;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      .contact-box {
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      .left, .right {
+        flex: 1;
+      }
+
+      .input-row {
+        flex-direction: row;
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .left, .right {
+        width: 100%;
+      }
+
+      .input-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <video autoplay loop muted playsinline class="video-background">
+    <source src="vid & pic/Purple Matrix Code Rain 3D - 1 Hour Matrix Theme TV Screensaver and 4K Live Wallpaper(720P_HD).mp4" type="video/mp4">
+  </video>
+
+  <nav class="animate__animated animate__fadeInUpBig">
+    <div class="logo"><a href="index.html" class="la">Meer's Portfolio</a></div>
+    <div class="nav-links">
+      <a href="index.html">← Go Back</a>
+    </div>
+  </nav>
+
+  <div class="container animate__animated animate__fadeInDownBig">
+    <div class="contact-box">
+      <div class="left">
+        <h2>Contact Us</h2>
+        <p class="lt"><i class="fas fa-map-marker-alt" style="color: red;"></i> Gawalior Society, Scheme-33, Gulzar-e-Hijri, Pak / Karachi.</p>
+        <p class="lt"><i class="fas fa-phone" style="color: dodgerblue;"></i> 03303904404</p>
+        <p class="lt"><i class="fab fa-whatsapp" style="color: #25D366;"></i> 03303904404</p>
+
+        <h3>Follow Us :</h3>
+        <div class="social">
+          <a href="https://www.facebook.com/profile.php?id=61575148835850"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/meer2548?igsh=MXZ2YWYybXlqOHVkeg=="><i class="fab fa-instagram"></i></a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muhammedmeer298@gmail.com" target="_blank"><i class="fab fa-google"></i></a>
+
+        </div>
+      </div>
+
+      <div class="right">
+        <h2>Send Message</h2>
+        <form id="contact-form">
+          <label for="name">Name :</label>
+          <div class="input-row">
+            <input type="text" name="first_name" placeholder="First" required />
+            <input type="text" name="last_name" placeholder="Last" required />
+          </div>
+
+          <label for="email">Email :</label>
+          <input type="email" name="user_email" placeholder="Your email" required />
+
+          <label for="message">Message :</label>
+          <textarea name="message" placeholder="Your message" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("mu0dSpt4jS6SPDklV"); // 🔁 Replace with your Public Key
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.sendForm('service_iqk3wxx', 'template_1vk5yzl', this) // 🔁 Replace these too
+        .then(() => {
+          alert("Message sent successfully!");
+          this.reset();
+        }, (error) => {
+          alert("Failed to send message: " + error.text);
+        });
+    });
+  </script>
+</body>
+</html>
